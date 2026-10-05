@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "auto-mailing"
+version = "0.1.0"
+description = ""
+authors = ["nhlee.intern <nhlee.intern@ahnlab.com>"]
+license = "Proprietary"
+readme = "README.md"
+packages = [
+    { include = "*", from = "src" }
+]
+
+[tool.poetry.group.dev.dependencies]
+types-requests = "^2.32.0.20241016"
+black = "^25.1.0"
+mypy = "^1.15.0"
+pre-commit = "^4.1.0"
+ruff = "^0.9.6"
+rich = "^13.9.4"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[[tool.poetry.source]]
+name = "abis"
+url = "http://abis.ahnlab.com/artifactory/api/pypi/pypi-repos/simple/"
+priority = "primary"
+
+[tool.ruff.lint]
+select = [
+    "F",    # Flake8 
+    "E",    # PEP8 
+    "B",    # Bandit
+    "I",    # isort 
+]
+
+ignore = ["E501"]
+
+fixable = ["F", "E", "B", "I"]
+
+[tool.black]
+line-length = 100
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+selenium = "^4.28.1"
+pydantic = "^2.10.6"
+pandas = "^2.3.0"
+ace-tools = "^0.0"
+tools = "^1.0.2"
